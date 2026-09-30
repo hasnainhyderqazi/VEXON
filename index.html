@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; media-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>VEXON — Personal Intelligence</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="boot" id="boot">
+      <div class="boot-mark">V<span>·</span></div>
+      <p>VEXON</p>
+      <small>INITIALIZING YOUR COMMAND CENTER</small>
+      <div class="boot-line"></div>
+    </div>
+    <aside class="rail">
+      <a class="logo" href="#" aria-label="VEXON home">V<span>·</span></a>
+      <div class="rail-nav">
+        <button
+          class="nav active"
+          data-view="command"
+          title="Command center"
+          aria-label="Command center"
+        >
+          ⌘</button
+        ><button
+          class="nav"
+          data-view="memory"
+          title="Memory & notes"
+          aria-label="Memory and notes"
+        >
+          ▤</button
+        ><button
+          class="nav"
+          data-view="browser"
+          title="Browser & files"
+          aria-label="Browser and files"
+        >
+          ▣</button
+        ><button
+          class="nav"
+          data-view="settings"
+          title="Settings"
+          aria-label="Settings"
+        >
+          ⚙
+        </button>
+      </div>
+      <div class="rail-bottom">
+        <span class="rail-rule"></span>
+        <div class="avatar">HQ</div>
+      </div>
+    </aside>
+    <div class="app">
+      <header>
+        <div class="brand">VEXON <span>PERSONAL INTELLIGENCE</span></div>
+        <div class="header-right">
+          <span class="connection" id="connection"
+            ><i></i>CHECKING LOCAL BRAIN</span
+          ><span id="clock">--:--</span
+          ><button id="fullscreen" class="icon-btn" title="Fullscreen">
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <main>
+        <section class="intro">
+          <div>
+            <div class="eyebrow">
+              <span></span> YOUR SPACE. YOUR INTELLIGENCE.
+            </div>
+            <h1>At your command, <em>Hasnain Sir.</em></h1>
+            <p id="greeting">Assalam-o-Alaikum. Aaj kya karna hai?</p>
+          </div>
+          <div class="date-block">
+            <b id="date"></b><span>LOCAL-FIRST / OWNER CONFIGURED</span>
+          </div>
+        </section>
+        <div class="preview-banner hidden" id="previewBanner">
+          INTERFACE PREVIEW · Windows controls and AI require the desktop
+          application.
+        </div>
+        <section class="view" id="view-command">
+          <div class="workspace">
+            <div class="left-stack">
+              <section class="panel core-panel">
+                <div class="panel-heading">
+                  <h2>NEURAL CORE</h2>
+                  <span class="micro" id="coreMode">LOCAL INTELLIGENCE</span>
+                </div>
+                <div class="orb-area">
+                  <div class="orb-grid"></div>
+                  <div class="orbit orbit-one"></div>
+                  <div class="orbit orbit-two"></div>
+                  <div class="orb">
+                    <div class="orb-inner"></div>
+                    <div class="orb-glyph">V</div>
+                  </div>
+                  <span class="orb-coordinate coord-a">VX / 01</span
+                  ><span class="orb-coordinate coord-b">PERSONAL CORE</span>
+                </div>
+                <div class="core-status">
+                  <span class="status-light"></span
+                  ><span id="stateLabel">READY WHEN YOU ARE</span>
+                </div>
+                <p class="core-sub" id="stateDetail">
+                  One command. A little more possibility.
+                </p>
+                <div class="waveform" id="waveform" aria-hidden="true"></div>
+                <div class="core-footer">
+                  <span>PRIVATE BY DESIGN</span
+                  ><span id="voiceStatus">VOICE · CHECKING</span>
+                </div>
+              </section>
+              <section class="panel system-panel">
+                <div class="panel-heading">
+                  <h2>SYSTEM PULSE</h2>
+                  <span class="live-tag">LIVE</span>
+                </div>
+                <div class="meter-row">
+                  <span>CPU</span>
+                  <div class="meter"><i id="cpuBar"></i></div>
+                  <b id="cpuValue">—</b>
+                </div>
+                <div class="meter-row">
+                  <span>MEMORY</span>
+                  <div class="meter purple"><i id="ramBar"></i></div>
+                  <b id="ramValue">—</b>
+                </div>
+                <div class="system-bottom">
+                  <span id="platformLabel">Detecting system</span
+                  ><span id="uptime">—</span>
+                </div>
+              </section>
+            </div>
+            <section class="panel conversation-panel">
+              <div class="panel-heading">
+                <div class="conversation-title">
+                  <h2>CONVERSATION</h2>
+                  <span class="session-chip">PERSONAL SESSION</span>
+                </div>
+                <button class="text-btn" id="clearChat">Clear</button>
+              </div>
+              <div class="messages" id="messages" role="log" aria-live="polite">
+                <article class="message assistant welcome">
+                  <div class="message-meta">
+                    <span class="mini-logo">V</span><b>VEXON</b><time>NOW</time>
+                  </div>
+                  <p dir="auto">
+                    السلام علیکم حسنین سر۔ میں حاضر ہوں۔ بتائیے، آج کیا کرنا ہے؟
+                  </p>
+                  <div class="welcome-note">
+                    Your ideas, tasks and everyday actions.<br />A single place
+                    to move them forward.
+                  </div>
+                </article>
+              </div>
+              <div class="suggestions">
+                <button data-prompt="YouTube kholo">↗ Open YouTube</button
+                ><button data-prompt="Downloads mein meri PDF dhoondo">
+                  ⌕ Find my PDFs</button
+                ><button data-prompt="aaj ke tasks batao">
+                  ☷ My reminders
+                </button>
+              </div>
+              <form id="commandForm" class="composer">
+                <textarea
+                  id="command"
+                  rows="2"
+                  placeholder="Kuch kahiye, Hasnain Sir…"
+                  maxlength="6000"
+                  aria-label="Your command"
+                ></textarea>
+                <div class="composer-bottom">
+                  <span>URDU / ROMAN URDU / ENGLISH</span>
+                  <div>
+                    <button
+                      type="button"
+                      id="clipboard"
+                      class="icon-btn"
+                      title="Paste clipboard for review"
+                    >
+                      ▤</button
+                    ><button
+                      type="button"
+                      id="mic"
+                      class="mic-btn"
+                      title="Record local Urdu voice"
+                      aria-label="Record Urdu voice"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <rect x="9" y="3" width="6" height="11" rx="3" />
+                        <path d="M6 11v1a6 6 0 0 0 12 0v-1M12 18v3m-3 0h6" />
+                      </svg></button
+                    ><button
+                      type="button"
+                      id="stop"
+                      class="stop-btn hidden"
+                      title="Stop task"
+                    >
+                      ■ Stop</button
+                    ><button
+                      type="submit"
+                      id="send"
+                      class="send-btn"
+                      aria-label="Send command"
+                    >
+                      ↑
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div class="composer-hint">
+                <span id="inputHint"
+                  >Enter to send · Shift + Enter for a new line</span
+                ><span>⌁ ON YOUR TERMS</span>
+              </div>
+            </section>
+            <aside class="right-stack">
+              <section class="panel quick-panel">
+                <div class="panel-heading">
+                  <h2>QUICK ACTIONS</h2>
+                  <span class="micro">01—04</span>
+                </div>
+                <button class="quick-action" data-prompt="YouTube Studio kholo">
+                  <span class="action-icon blue">▷</span
+                  ><span
+                    ><b>YouTube Studio</b
+                    ><small>Your creator workspace</small></span
+                  ><span class="arrow">↗</span></button
+                ><button class="quick-action" data-prompt="TikTok kholo">
+                  <span class="action-icon violet">♪</span
+                  ><span><b>TikTok</b><small>Open your next idea</small></span
+                  ><span class="arrow">↗</span></button
+                ><button class="quick-action" id="quickNote">
+                  <span class="action-icon amber">▤</span
+                  ><span
+                    ><b>Capture a thought</b
+                    ><small>Keep it in local memory</small></span
+                  ><span class="arrow">+</span></button
+                ><button class="quick-action" data-prompt="calculator kholo">
+                  <span class="action-icon green"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      width="19"
+                      height="19"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                    >
+                      <rect x="5" y="2" width="14" height="20" rx="2" />
+                      <path
+                        d="M8 6h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 4h2m4 0h2"
+                      /></svg></span
+                  ><span
+                    ><b>Calculator</b
+                    ><small>A little everyday help</small></span
+                  ><span class="arrow">↗</span>
+                </button>
+              </section>
+              <section class="panel activity-panel">
+                <div class="panel-heading">
+                  <h2>ACTIVITY</h2>
+                  <span class="micro" id="activityCount">00</span>
+                </div>
+                <div id="activityList" class="activity-list">
+                  <div class="empty">
+                    <div class="empty-symbol">⌁</div>
+                    <b>A clear runway.</b>
+                    <p>Your completed actions<br />will appear here.</p>
+                  </div>
+                </div>
+              </section>
+              <div class="owner-card">
+                <div class="owner-dot"></div>
+                <div>
+                  <b>Built around you.</b>
+                  <p>Hasnain Hyder Qazi<br />AI · Automation · YouTube</p>
+                </div>
+                <span>HQ</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+        <section class="view hidden" id="view-memory">
+          <div class="page-title">
+            <div>
+              <div class="eyebrow">THINGS WORTH KEEPING</div>
+              <h2>Memory & reminders</h2>
+            </div>
+            <span class="pill">STORED ON THIS DEVICE</span>
+          </div>
+          <div class="memory-grid">
+            <section class="panel form-panel">
+              <h3>Capture a thought</h3>
+              <textarea
+                id="noteText"
+                placeholder="An idea, a plan, a reminder to yourself…"
+                maxlength="4000"
+              ></textarea
+              ><button id="saveNote" class="primary-btn">Save note ↗</button>
+              <h3 class="section-spacer">Remind me</h3>
+              <input
+                id="reminderText"
+                placeholder="What do you want to remember?"
+                maxlength="4000"
+              /><label
+                >In how many minutes?<input
+                  type="number"
+                  id="reminderMinutes"
+                  min="1"
+                  max="525600"
+                  value="10" /></label
+              ><button id="saveReminder" class="secondary-btn">
+                Set reminder
+              </button>
+              <p class="muted">
+                VEXON must be running. Missed reminders appear on the next
+                launch.
+              </p>
+            </section>
+            <section class="panel form-panel">
+              <h3>Saved notes <span id="noteCount"></span></h3>
+              <div id="notesList" class="item-list"></div>
+              <h3 class="section-spacer">Upcoming reminders</h3>
+              <div id="remindersList" class="item-list"></div>
+            </section>
+            <section class="panel form-panel">
+              <h3>What VEXON knows</h3>
+              <div class="profile-card">
+                <span class="avatar">HQ</span>
+                <h4>Hasnain Hyder Qazi</h4>
+                <p>
+                  AI automation · AI agents<br />YouTube · Technology
+                  projects<br />Mehrabpur, Sindh, Pakistan
+                </p>
+              </div>
+              <h4>Remembered preferences</h4>
+              <div id="preferencesList" class="item-list"></div>
+              <input
+                id="preferenceText"
+                placeholder="A preference VEXON should remember"
+                maxlength="4000"
+              /><button id="savePreference" class="secondary-btn">
+                Remember this
+              </button>
+            </section>
+          </div>
+        </section>
+        <section class="view hidden" id="view-browser">
+          <div class="page-title">
+            <div>
+              <div class="eyebrow">YOUR CONNECTED WORKSPACE</div>
+              <h2>Browser & files</h2>
+            </div>
+            <span class="pill">PERMISSION-AWARE</span>
+          </div>
+          <div class="browser-grid">
+            <section class="panel form-panel">
+              <h3>VEXON browser tabs</h3>
+              <p class="muted">
+                Separate from Chrome. Log in directly in the opened website.
+                Select a tab, then read its visible text with your confirmation.
+              </p>
+              <div class="button-row">
+                <button
+                  data-prompt="YouTube Studio kholo"
+                  class="secondary-btn"
+                >
+                  Open Studio ↗</button
+                ><button id="readPage" class="primary-btn">
+                  Read active page
+                </button>
+              </div>
+              <div id="tabsList" class="item-list"></div>
+              <p class="muted">
+                Reading supports page text. Charts, hidden data and every
+                analytics layout are not guaranteed.
+              </p>
+            </section>
+            <section class="panel form-panel">
+              <h3>Find documents in Downloads</h3>
+              <div class="button-row">
+                <input
+                  id="fileQuery"
+                  value=".pdf"
+                  placeholder="Filename or extension"
+                /><button id="searchFiles" class="primary-btn">Find</button>
+              </div>
+              <p class="muted">
+                PDF, text, CSV and images. Opening a file requires confirmation.
+              </p>
+              <div id="filesList" class="item-list"></div>
+            </section>
+          </div>
+        </section>
+        <section class="view hidden" id="view-settings">
+          <div class="page-title">
+            <div>
+              <div class="eyebrow">MAKE IT YOURS</div>
+              <h2>Intelligence & voice</h2>
+            </div>
+            <span class="pill">NO PAID API REQUIRED</span>
+          </div>
+          <div class="settings-grid">
+            <section class="panel form-panel">
+              <h3><span class="number">01</span> Local intelligence</h3>
+              <p class="muted">
+                Install Ollama, download a tool-capable model, then connect.
+                Larger models need more RAM. Basic commands work without a
+                model.
+              </p>
+              <div class="code-line">ollama pull qwen3:4b</div>
+              <button id="refreshModels" class="secondary-btn">
+                ↻ Check Ollama
+              </button>
+              <p id="modelStatus" class="muted">Checking 127.0.0.1:11434…</p>
+              <label
+                >Installed model<select id="modelSelect">
+                  <option value="">Select a local model</option>
+                </select></label
+              ><button id="saveSettings" class="primary-btn">
+                Save configuration
+              </button>
+            </section>
+            <section class="panel form-panel">
+              <h3><span class="number">02</span> Urdu speech output</h3>
+              <p class="muted">
+                Uses installed Urdu system voices. Voice quality depends on your
+                device. No English voice is silently used for Urdu.
+              </p>
+              <label
+                >Urdu voice<select id="voiceSelect">
+                  <option value="">No Urdu voice detected</option>
+                </select></label
+              ><label class="check-label"
+                ><input type="checkbox" id="speakToggle" checked /> Speak
+                assistant replies</label
+              ><button id="testVoice" class="secondary-btn">
+                Test greeting ♪
+              </button>
+              <p id="ttsStatus" class="muted"></p>
+            </section>
+            <section class="panel form-panel">
+              <h3><span class="number">03</span> Local voice input</h3>
+              <p class="muted">
+                Optional whisper.cpp transcription. Select a trusted whisper-cli
+                executable and multilingual GGML model (not an .en model). No
+                audio leaves your device.
+              </p>
+              <button id="pickExe" class="secondary-btn">
+                Choose whisper-cli.exe
+              </button>
+              <p id="exePath" class="path-label">Not configured</p>
+              <button id="pickModel" class="secondary-btn">
+                Choose whisper model
+              </button>
+              <p id="whisperPath" class="path-label">Not configured</p>
+              <p class="muted">
+                Click the microphone to start / stop. Maximum 60 seconds.
+                Wake-word listening is not included in V1.
+              </p>
+            </section>
+          </div>
+          <section class="panel scope-panel">
+            <h3>Clear boundaries. Real capabilities.</h3>
+            <p>
+              No automatic sending, purchases, deletion, password handling or
+              arbitrary shell commands. Screen vision and workflow integrations
+              are future modules. This release reads browser text; it does not
+              claim to understand your entire screen.
+            </p>
+          </section>
+        </section>
+      </main>
+      <footer>
+        <span
+          ><i></i> VEXON <b>0.1</b>
+          <span class="footer-divider">/</span> PERSONAL DESKTOP AGENT</span
+        ><span
+          >DESIGNED FOR HASNAIN HYDER QAZI <span class="footer-divider">/</span>
+          <b>LOCAL FIRST.</b></span
+        >
+      </footer>
+    </div>
+    <div id="toast" class="toast hidden" role="status"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
