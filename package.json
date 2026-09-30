@@ -1,0 +1,33 @@
+{
+  "name": "vexon",
+  "version": "0.1.0",
+  "description": "Urdu-first local personal desktop assistant",
+  "main": "src/main.cjs",
+  "author": "Hasnain Hyder Qazi",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "preview": "node preview.cjs",
+    "package:win": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.hasnain.vexon",
+    "productName": "VEXON",
+    "files": [
+      "src/**/*",
+      "ui/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}
